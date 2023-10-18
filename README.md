@@ -4,7 +4,7 @@ REST API de Libros
 Consignas:
 
 Actividad - Crear REST API
-Después de ver eI vídeo tutorial para construir y probar una REST API (ver yjdeo), crear
+Después de ver eI vídeo tutorial para construir y probar una REST API, crear
 una API para la gestión de libros de una biblioteca. EI modelo de datos a implementar
 es el siguiente:
 
@@ -27,4 +27,4 @@ obtener un libro de acuerdo al número de identificación (id) proporcionado
 4. Subir eI proyecto a un repositorio remoto público en Github.
 Para realizar la entrega de la tarea enviar un archivo de texto con eI enlace al
 repositorio. Dentro del repositorio incluir una carpeta "script" con eI código sql para
-generar eI modelo de datos con su respectivo lote de prueba (ver video).
+generar eI modelo de datos con su respectivo lote de prueba.
