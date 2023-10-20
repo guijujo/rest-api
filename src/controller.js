@@ -33,6 +33,16 @@ class LibrosController {
         res.status(404).json({ "Error": `No se encontró ningún libro con el ISBN ${libro.ISBN}` });
       }
     }
+
+    async update(req, res) {
+      const libro = req.body;
+      const [result] = await pool.query('UPDATE Libros SET nombre = (?), autor = (?), categoria = (?), año = (?) WHERE ISBN = (?)', [libro.nombre, libro.autor, libro.categoria, libro.año, libro.ISBN]);
+      if (result.affectedRows > 0) {
+        res.json({ "message": `Libro con ISBN ${libro.ISBN} actualizado exitosamente` });
+      } else {
+        res.status(404).json({ "Error": `No se encontró ningún libro con el ISBN ${libro.ISBN}` });
+      }
+    }
 }
 
 export const libro = new LibrosController();
