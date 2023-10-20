@@ -13,11 +13,11 @@ class LibrosController {
   async getOne(req, res) {
     try {
       const libro = req.body;
-      const [result] = await pool.query('SELECT * FROM libros WHERE id = ?', [libro.id]);
+      const [result] = await pool.query('SELECT * FROM libros WHERE ISBN = ?', [libro.ISBN]);
       if (result.length > 0) {
         res.json(result[0]);
       } else {
-        res.status(404).json({ "Error": `No se encontró el libro con el id ${id}` });
+        res.status(404).json({ "Error": "No se encontró el libro con el ISBN ${libro.ISBN} " });
       }
     } catch (error) {
       res.status(500).json({ "Error": "Ocurrió un error al obtener el libro" });
