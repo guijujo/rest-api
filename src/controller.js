@@ -6,7 +6,7 @@ class LibrosController {
       const [result] = await pool.query('SELECT * FROM libros');
       res.json(result);
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al obtener los libros" });
+      res.status(404).json({ "Error": "Ocurrió un error al obtener los libros" });
     }
   }
 
@@ -20,7 +20,7 @@ class LibrosController {
         res.status(404).json({ "Error": "No se encontró el libro con el ISBN ${libro.ISBN} " });
       }
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al obtener el libro" });
+      res.status(404).json({ "Error": "Ocurrió un error al obtener el libro" });
     }
   }
 
@@ -30,7 +30,7 @@ class LibrosController {
       const [result] = await pool.query(`INSERT INTO Libros(nombre, autor, categoria, año, ISBN) VALUES (?, ?, ?, ?, ?)`, [libro.nombre, libro.autor, libro.categoria, libro.año, libro.ISBN]);
       res.json({ "ID insertado": result.insertId, "message": "Libro insertado exitosamente" });
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al agregar el libro" });
+      res.status(404).json({ "Error": "Ocurrió un error al agregar el libro" });
     }
   }
 
@@ -44,7 +44,7 @@ class LibrosController {
         res.status(404).json({ "Error": `No se encontró ningún libro con el ISBN ${libro.ISBN}` });
       }
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al eliminar el libro" });
+      res.status(404).json({ "Error": "Ocurrió un error al eliminar el libro" });
     }
   }
 
@@ -58,7 +58,7 @@ class LibrosController {
         res.status(404).json({ "Error": `No se encontró ningún libro con el ID ${libro.id}` });
       }
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al eliminar el libro" });
+      res.status(404).json({ "Error": "Ocurrió un error al eliminar el libro" });
     }
   }
 
@@ -72,7 +72,7 @@ class LibrosController {
         res.status(404).json({ "Error": `No se encontró ningún libro con el ISBN ${libro.ISBN}` });
       }
     } catch (error) {
-      res.status(500).json({ "Error": "Ocurrió un error al actualizar el libro" });
+      res.status(404).json({ "Error": "Ocurrió un error al actualizar el libro" });
     }
   }
 }
